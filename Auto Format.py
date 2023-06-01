@@ -24,20 +24,20 @@ def get_data():
 
     else:
         files = os.listdir(caminho)
-        data = datetime(ano, mes, 1)
+        data = datetime(ano, mes, 1) #format used on the files
 
         for file in enumerate(files):
             if file.endswith(".xlsx") or file.endswith(".xls"):
-                novo_nome = data.strftime("%d-%m-%Y.xlsx")
+                novo_nome = data.strftime("%d-%m-%Y.xlsx") #sets the format
 
                 caminho_antigo = os.path.join(caminho, file)
                 caminho_novo = os.path.join(caminho, novo_nome)
 
-                os.rename(caminho_antigo, caminho_novo)
-                data += timedelta(days=1)
+                os.rename(caminho_antigo, caminho_novo) #rename the files as intended
+                data += timedelta(days=1) #add 1 to day in the format
 
-        print("Arquivos renomeados com sucesso!")
+        print("Arquivos renomeados com sucesso!") #print messages for the user
         print("Fechando programa...")
-        time.sleep(5)
+        time.sleep(5) #wait before closing the program
 
-get_data()
+get_data() #runs the program

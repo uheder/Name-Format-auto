@@ -1,0 +1,43 @@
+import os
+from datetime import datetime, timedelta
+import time
+
+#main function
+def get_data():
+
+    caminho = input("Digite o caminho da pasta dos arquivos a serem renomeados: ") 
+    #gets the path of the folder that the files are on
+    mes = input("Digite o número do mês (MM): ") #get the month input
+    ano = input("Digite o ano (AAAA): ") #get the year
+
+    #verify if month and year are inputs of correct length for the program to actually run
+    if len(ano) != 4 or len(mes) != 2:
+        raise ValueError
+    try:
+        mes = int(mes)
+        ano = int(ano)
+
+    except ValueError: #handles the error and start the program again
+        print("Formato inválido, reiniciando...")
+        time.sleep(5)
+        return get_data
+
+    else:
+        files = os.listdir(caminho)
+        data = datetime(ano, mes, 1)
+
+        for file in enumerate(files):
+            if file.endswith(".xlsx") or file.endswith(".xls"):
+                novo_nome = data.strftime("%d-%m-%Y.xlsx")
+
+                caminho_antigo = os.path.join(caminho, file)
+                caminho_novo = os.path.join(caminho, novo_nome)
+
+                os.rename(caminho_antigo, caminho_novo)
+                data += timedelta(days=1)
+
+        print("Arquivos renomeados com sucesso!")
+        print("Fechando programa...")
+        time.sleep(5)
+
+get_data()

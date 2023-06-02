@@ -4,8 +4,10 @@ import time
 
 #main function
 def get_data():
-
-    caminho = input("Digite o caminho da pasta dos arquivos a serem renomeados: ") 
+    """
+    sets the path, get the inputs and rename the files
+    """
+    caminho = input("Digite o caminho da pasta dos arquivos a serem renomeados: ")
     #gets the path of the folder that the files are on
     mes = input("Digite o número do mês (MM): ") #get the month input
     ano = input("Digite o ano (AAAA): ") #get the year

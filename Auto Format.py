@@ -26,7 +26,7 @@ def get_data():
         files = os.listdir(caminho)
         data = datetime(ano, mes, 1) #format used on the files
 
-        for file in enumerate(files):
+        for file in files:
             if file.endswith(".xlsx") or file.endswith(".xls"):
                 novo_nome = data.strftime("%d-%m-%Y.xlsx") #sets the format
 

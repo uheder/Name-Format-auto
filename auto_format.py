@@ -1,6 +1,6 @@
 """
 
-Created but @uheder_macedo, 2023
+Created by @uheder_macedo, 2023
 
 """
 
@@ -13,7 +13,7 @@ def get_data():
 
     """
     sets the path, get the inputs and rename the files
-    
+
     """
     caminho = input("Digite o caminho da pasta dos arquivos a serem renomeados: ")
     #gets the path of the folder that the files are on

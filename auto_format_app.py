@@ -1,5 +1,5 @@
 # pylint: disable = <no-name-in-module>
-#pyling: disable = <missing-module-docstring>
+# pylint: disable = <missing-module-docstring>
 import sys
 import time
 import os

@@ -1,4 +1,8 @@
-import sys, time, os
+# pylint: disable = <no-name-in-module>
+#pyling: disable = <missing-module-docstring>
+import sys
+import time
+import os
 from datetime import datetime, timedelta
 from PyQt6.QtCore import QSize, QThread
 from PyQt6.QtWidgets import (

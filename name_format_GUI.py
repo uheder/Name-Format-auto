@@ -44,10 +44,10 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout()
 
         # Add line inputs
-        layout.addWidget(QLabel("Insira o número do mês:"))
+        layout.addWidget(QLabel("Insira o número do mês (MM):"))
         layout.addWidget(self.mes)
 
-        layout.addWidget(QLabel("Insira o ano:"))
+        layout.addWidget(QLabel("Insira o ano (AAAA):"))
         layout.addWidget(self.ano)
 
         layout.addWidget(QLabel("Insira o caminho para a pasta dos arquivos:"))

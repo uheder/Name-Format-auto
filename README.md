@@ -12,4 +12,4 @@ TODO: reject empty inputs, as the user shouldn't be able to run the program with
       get the whole program to run as an executable(.exe) file
       create a script where the program would detec if the worked month and year should have as many days as there are files on the folder
       i.e. having 31 files and the user input 02 as month. The program should warn the user that the number of files exceeds the number of days on that month, and then rename on the right amount of files. 
-      
+      make the program also modify a certain cell on the same input as the file.

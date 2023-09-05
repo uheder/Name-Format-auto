@@ -81,13 +81,13 @@ class MainWindow(QMainWindow):
         self.getdata.caminho = self.caminho.text()
 
         # handles the error for incorrect info inputs
+        if len(self.getdata.ano) != 4 or len(self.getdata.mes) != 2:
+            self.mensagem_erro()
+            return
+
         try:
             self.getdata.mes = int(self.getdata.mes)
             self.getdata.ano = int(self.getdata.ano)
-            
-            if len(self.getdata.ano) != 4 or len(self.getdata.mes) != 2:
-            return self.mensagem_erro()
-
         except ValueError:
             self.mensagem_erro()
             return

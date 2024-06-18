@@ -141,18 +141,20 @@ class getData(QThread):
     def run(self):
         files = os.listdir(self.caminho)
         data = datetime(self.ano, self.mes, 1)
-
+        
         for file in files:
-            if file.endswith(".xlsx") or file.endswith(".xls"):
-                novo_nome = data.strftime("%d-%m-%Y.xlsx")
+            try:
+                if file.endswith(".xlsx") or file.endswith(".xls"):
+                    novo_nome = data.strftime("%d-%m-%Y.xlsx")
 
-                caminho_antigo = os.path.join(self.caminho, file)
-                caminho_novo = os.path.join(self.caminho, novo_nome)
+                    caminho_antigo = os.path.join(self.caminho, file)
+                    caminho_novo = os.path.join(self.caminho, novo_nome)
 
-                os.rename(caminho_antigo, caminho_novo)
-            data += timedelta(days=1)
-
-
+                    os.rename(caminho_antigo, caminho_novo)
+                data += timedelta(days=1)
+            except FileExistsError:
+                continue
+            
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()

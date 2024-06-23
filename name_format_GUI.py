@@ -1,7 +1,7 @@
 # pylint : disable=<no-name-in-module>
 # pylint : disable=<missing-module-docstring>
 
-from calendar import IllegalMonthError, monthrange
+from calendar import *
 import sys
 import time
 import os
@@ -91,7 +91,6 @@ class MainWindow(QMainWindow):
             self.getdata.ano = int(self.getdata.ano)
         except ValueError:
             self.mensagem_erro()
-            return
 
         self.getdata.start()
 
@@ -139,15 +138,16 @@ class getData(QThread):
 
     """
 
+
     def run(self):
         files = os.listdir(self.caminho)
-        data = datetime(self.ano, self.mes, 1)
 
         try:
+            data = datetime(self.ano, self.mes, 1)
             dias_no_mes = monthrange(data.year, data.month)[1]
-        except IllegalMonthError:
-            QMessageBox.information(self, "Name Format APP", "Mês inválido")
-            return MainWindow.restart
+        except ValueError:
+            # FIXME
+            return QMessageBox.information(self, "Name Format APP", "Mês invalido")
 
         for file in files:
             try:
@@ -165,13 +165,7 @@ class getData(QThread):
 
             except FileExistsError:
                 continue
-            except ValueError:
-                # FIXME
-                # verificar aplicação desse erro, se existe como chegar nele, visto que dias_no_mes
-                # só vai permitir renomear até o dia maximo
-                QMessageBox.information(self, "Name Format APP", f"Erro: o mês {data.month} do ano de {data.year} possui apenas {dias_no_mes} dias.")
-                time.sleep(1)
-                break
+            
 
 
 if __name__ == "__main__":

@@ -7,3 +7,4 @@ The program will then rename all the files with an extension of either .xls or .
 
 Inputs that are not on this format will not be accepted.
 
+TODO: check for no files / no excel files on the path folder
